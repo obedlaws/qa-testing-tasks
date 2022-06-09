@@ -1,0 +1,590 @@
+{
+	"id": "f61eeb73-3ff2-4a04-bd08-97416cdeedd5",
+	"name": "Test",
+	"timestamp": "2022-06-09T17:57:03.927Z",
+	"collection_id": "21331838-36a8cc04-341a-45da-aedc-bbfd031b1323",
+	"folder_id": 0,
+	"environment_id": "21331838-f10abc17-64d3-46db-a79c-4b80d56a1983",
+	"totalPass": 37,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "d681f86a-3f1a-408d-bcc5-afc927bd4b4f",
+			"name": "Create Tweet Valid Request",
+			"url": "https://api.twitter.com/2/tweets",
+			"time": 167,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code should be 201": true,
+				"Should include tweet id": true,
+				"Should include tweet text": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Should include tweet id": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Should include tweet text": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				167
+			],
+			"allTests": [
+				{
+					"Status code should be 201": true,
+					"Should include tweet id": true,
+					"Should include tweet text": true
+				}
+			]
+		},
+		{
+			"id": "0973fb4e-8627-4691-afa2-05ed0eddfd92",
+			"name": "Check Tweet Valid Request",
+			"url": "https://api.twitter.com/2/tweets/1534957756662292481",
+			"time": 122,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code should be 200": true,
+				"Should include tweet id": true,
+				"Should include tweet text": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Should include tweet id": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Should include tweet text": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				122
+			],
+			"allTests": [
+				{
+					"Status code should be 200": true,
+					"Should include tweet id": true,
+					"Should include tweet text": true
+				}
+			]
+		},
+		{
+			"id": "a58d1a06-3316-43c9-ad52-34ee210ab92b",
+			"name": "Delete a Tweet Valid Request",
+			"url": "https://api.twitter.com/2/tweets/1534957756662292481",
+			"time": 119,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code should be 200": true,
+				"Should confirm test is deleted": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Should confirm test is deleted": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				119
+			],
+			"allTests": [
+				{
+					"Status code should be 200": true,
+					"Should confirm test is deleted": true
+				}
+			]
+		},
+		{
+			"id": "e4fe6087-e053-4d67-a6ba-671c2d0aac5a",
+			"name": "Succesful User by Username",
+			"url": "https://api.twitter.com/2/users/by/username/solana",
+			"time": 120,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code should be 200": true,
+				"Should include User ID": true,
+				"Should include name": true,
+				"Should include username": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Should include User ID": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Should include name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Should include username": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				120
+			],
+			"allTests": [
+				{
+					"Status code should be 200": true,
+					"Should include User ID": true,
+					"Should include name": true,
+					"Should include username": true
+				}
+			]
+		},
+		{
+			"id": "459b49f0-efeb-4091-bad3-00cc67e08268",
+			"name": "Blocks lookup Valid Request",
+			"url": "https://api.twitter.com/2/users/842064608844230656/blocking",
+			"time": 118,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code should be 200": true,
+				"Body response should include 'result_count'": true,
+				"'Result_count' should be 0": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body response should include 'result_count'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"'Result_count' should be 0": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				118
+			],
+			"allTests": [
+				{
+					"Status code should be 200": true,
+					"Body response should include 'result_count'": true,
+					"'Result_count' should be 0": true
+				}
+			]
+		},
+		{
+			"id": "9a7993c6-66b9-4c3e-ab2e-d764bfc1e1cd",
+			"name": "Create Tweet Unauthorized",
+			"url": "https://api.twitter.com/2/tweets",
+			"time": 87,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code should be 401": true,
+				"Title should say 'Unauthorized'": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Title should say 'Unauthorized'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				87
+			],
+			"allTests": [
+				{
+					"Status code should be 401": true,
+					"Title should say 'Unauthorized'": true
+				}
+			]
+		},
+		{
+			"id": "d84cacc0-0cd2-4713-9a3e-1e02bc1a5ac1",
+			"name": "Create Tweet Invalid Input",
+			"url": "https://api.twitter.com/2/tweets",
+			"time": 142,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status code should be 403": true,
+				"Should include warning on duplicate content": true,
+				"Title should say 'Forbidden'": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 403": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Should include warning on duplicate content": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Title should say 'Forbidden'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				142
+			],
+			"allTests": [
+				{
+					"Status code should be 403": true,
+					"Should include warning on duplicate content": true,
+					"Title should say 'Forbidden'": true
+				}
+			]
+		},
+		{
+			"id": "56b965c6-aa8c-4d4b-a264-c29995f2fd7f",
+			"name": "Check Tweet Unauthorized",
+			"url": "https://api.twitter.com/2/tweets/1534957756662292481",
+			"time": 80,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code should be 401": true,
+				"Title should say 'Unauthorized'": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Title should say 'Unauthorized'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				80
+			],
+			"allTests": [
+				{
+					"Status code should be 401": true,
+					"Title should say 'Unauthorized'": true
+				}
+			]
+		},
+		{
+			"id": "404c156b-c59d-4b17-8a04-90aaa30f8dd4",
+			"name": "Check Tweet Tweet Unavailable",
+			"url": "https://api.twitter.com/2/tweets/1534957756662292481",
+			"time": 110,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code should be 200": true,
+				"Title should indicate 'Not Found Error'": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Title should indicate 'Not Found Error'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				110
+			],
+			"allTests": [
+				{
+					"Status code should be 200": true,
+					"Title should indicate 'Not Found Error'": true
+				}
+			]
+		},
+		{
+			"id": "5af944b6-4401-49b2-991e-39587b8c9a74",
+			"name": "Delete a Tweet Unauthorized",
+			"url": "https://api.twitter.com/2/tweets/1534920733540876289",
+			"time": 80,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code should be 401": true,
+				"Title should say 'Unauthorized'": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Title should say 'Unauthorized'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				80
+			],
+			"allTests": [
+				{
+					"Status code should be 401": true,
+					"Title should say 'Unauthorized'": true
+				}
+			]
+		},
+		{
+			"id": "1371b202-446e-46b0-9ddb-dbc5b378940c",
+			"name": "User by Username Unauthorized",
+			"url": "https://api.twitter.com/2/users/by/username/obedec",
+			"time": 78,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code should be 401": true,
+				"Title should say 'Unauthorized'": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Title should say 'Unauthorized'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				78
+			],
+			"allTests": [
+				{
+					"Status code should be 401": true,
+					"Title should say 'Unauthorized'": true
+				}
+			]
+		},
+		{
+			"id": "b816d2b6-c7e9-4bc0-8b56-ff1fa17f3fd9",
+			"name": "User by Username Invalid Input",
+			"url": "https://api.twitter.com/2/users/by/username/unseucces@",
+			"time": 94,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code should be 400": true,
+				"Title should say 'Invalid Request'": true,
+				"Details should declare paramaters invlaid": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Title should say 'Invalid Request'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Details should declare paramaters invlaid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				94
+			],
+			"allTests": [
+				{
+					"Status code should be 400": true,
+					"Title should say 'Invalid Request'": true,
+					"Details should declare paramaters invlaid": true
+				}
+			]
+		},
+		{
+			"id": "f36b92d3-9c79-4201-84ba-7c74067c00bf",
+			"name": "User by Username Unauthorized Copy 2",
+			"url": "https://api.twitter.com/2/users/by/username/bhdseqwe",
+			"time": 112,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code should be 200": true,
+				"Should include message 'Could not find user'": true,
+				"Title should say 'Not Found Error'": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Should include message 'Could not find user'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Title should say 'Not Found Error'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				112
+			],
+			"allTests": [
+				{
+					"Status code should be 200": true,
+					"Should include message 'Could not find user'": true,
+					"Title should say 'Not Found Error'": true
+				}
+			]
+		},
+		{
+			"id": "cca9e8d8-df12-4bef-bb32-ca6045b6b545",
+			"name": "Blocks lookup Invalid Request",
+			"url": "https://api.twitter.com/2/users/951329744804392960/blocking",
+			"time": 111,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code should be 400": true,
+				"Title should say 'Invalid Request'": true,
+				"Should confirm one or more parameters are invalid": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Title should say 'Invalid Request'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Should confirm one or more parameters are invalid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				111
+			],
+			"allTests": [
+				{
+					"Status code should be 400": true,
+					"Title should say 'Invalid Request'": true,
+					"Should confirm one or more parameters are invalid": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1540,
+	"collection": {
+		"requests": [
+			{
+				"id": "d681f86a-3f1a-408d-bcc5-afc927bd4b4f",
+				"method": "POST"
+			},
+			{
+				"id": "0973fb4e-8627-4691-afa2-05ed0eddfd92",
+				"method": "GET"
+			},
+			{
+				"id": "a58d1a06-3316-43c9-ad52-34ee210ab92b",
+				"method": "DELETE"
+			},
+			{
+				"id": "e4fe6087-e053-4d67-a6ba-671c2d0aac5a",
+				"method": "GET"
+			},
+			{
+				"id": "459b49f0-efeb-4091-bad3-00cc67e08268",
+				"method": "GET"
+			},
+			{
+				"id": "9a7993c6-66b9-4c3e-ab2e-d764bfc1e1cd",
+				"method": "POST"
+			},
+			{
+				"id": "d84cacc0-0cd2-4713-9a3e-1e02bc1a5ac1",
+				"method": "POST"
+			},
+			{
+				"id": "56b965c6-aa8c-4d4b-a264-c29995f2fd7f",
+				"method": "GET"
+			},
+			{
+				"id": "404c156b-c59d-4b17-8a04-90aaa30f8dd4",
+				"method": "GET"
+			},
+			{
+				"id": "5af944b6-4401-49b2-991e-39587b8c9a74",
+				"method": "DELETE"
+			},
+			{
+				"id": "1371b202-446e-46b0-9ddb-dbc5b378940c",
+				"method": "GET"
+			},
+			{
+				"id": "b816d2b6-c7e9-4bc0-8b56-ff1fa17f3fd9",
+				"method": "GET"
+			},
+			{
+				"id": "f36b92d3-9c79-4201-84ba-7c74067c00bf",
+				"method": "GET"
+			},
+			{
+				"id": "cca9e8d8-df12-4bef-bb32-ca6045b6b545",
+				"method": "GET"
+			}
+		]
+	}
+}
