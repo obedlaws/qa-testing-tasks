@@ -1,5 +1,7 @@
 ﻿using System;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using PasswordGenerator;
 using RandomDataGenerator.FieldOptions;
 using RandomDataGenerator.Randomizers;
@@ -8,6 +10,8 @@ namespace qa_nba.Tests
 {
     public class Tests : DriverHelper
     {
+        WaitHelper waitHelper = new WaitHelper();
+
 
         // All the Pages
         Pages.HomePage homePage = new Pages.HomePage();
@@ -21,30 +25,34 @@ namespace qa_nba.Tests
         Pages.AwardsPage awardsPage = new Pages.AwardsPage();
         Pages.MVPNewsPage mvpPage = new Pages.MVPNewsPage();
 
+        // Wait variable
+        WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
 
 
 
-    [Test, Order(2)]
-    public void SearchStats()
-    {
+        [SetUp]
+        public void StartBrowser()
+        {
             Driver.Manage().Window.Maximize();
             Driver.Navigate().GoToUrl("https://www.nba.com/");
 
+        }
 
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(2));
+
+        [Test, Order(2)]
+    public void SearchStats()
+    {
             
             
             homePage.ClickStats();
-            System.Threading.Thread.Sleep(1000);
             statsPage.ClickTools();
-            wait.Until(Driver => statsPage.boxScoreMenu);
-            System.Threading.Thread.Sleep(500);
+            waitHelper.IsVisible(statsPage.boxScoreTab);
             statsPage.ClickBoxScore();
+
             boxScorePage.SelectRebounds();
             boxScorePage.InputAmount("30");
             boxScorePage.RunQuery();
             wait.Until(Driver => boxScorePage.table);
-            System.Threading.Thread.Sleep(1000);
             boxScorePage.OrganizeRebounds();
 
             Assert.IsTrue(boxScorePage.table.Displayed);
@@ -66,16 +74,11 @@ namespace qa_nba.Tests
             string lastName = genLastName.Generate();
             string pswd = genPassword.Next();
 
-            Driver.Manage().Window.Maximize();
-            
-            Driver.Navigate().GoToUrl("https://www.nba.com/");
 
-
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
-
-            System.Threading.Thread.Sleep(1000);
+            waitHelper.IsClickable(homePage.Cookies);
             homePage.ClickCookies();
-            System.Threading.Thread.Sleep(1400);
+
+            System.Threading.Thread.Sleep(700);
             homePage.SignInTab();
             homePage.SignIntoNBA();
             homePage.SignUp();
@@ -89,14 +92,12 @@ namespace qa_nba.Tests
             homePage.InputCountry();
             homePage.CheckTermsOfService();
             homePage.CreateAccount();
-            System.Threading.Thread.Sleep(2500);
+            waitHelper.IsClickable(homePage.TeamLogo);
             homePage.SelectFavoriteTeam();
             homePage.NextTeam();
-            System.Threading.Thread.Sleep(1000);
             homePage.CheckDailyMail();
             homePage.CheckPromotions();
             homePage.NextLetter();
-            System.Threading.Thread.Sleep(100);
 
             Assert.IsTrue(homePage.logInWindow.Displayed);
 
@@ -105,66 +106,42 @@ namespace qa_nba.Tests
     [Test, Order(3)]
     public void LookUpSinglePlayer()
     {
-            string player = "Stephen";
-
-            Driver.Manage().Window.Maximize();
-            Driver.Navigate().GoToUrl("https://www.nba.com/");
-
+            
 
             homePage.ClickPlayers();
-            System.Threading.Thread.Sleep(150);
             playersPage.InsertName();
-            System.Threading.Thread.Sleep(1000);
+            Thread.Sleep(1000);
             playersPage.ClickPlayer();
 
             string name = curryPage.CurryName.Text;
 
-            Assert.IsTrue(player.Contains(name));
-
+            Assert.IsTrue(name.Contains("Stephen"));
 
     }
 
     [Test, Order(4)]
     public void LookUpPastGameScoreBox()
-    {
-            Driver.Manage().Window.Maximize();
-            Driver.Navigate().GoToUrl("https://www.nba.com/");
-
-            Pages.HomePage homePage = new Pages.HomePage();
-
-
-            System.Threading.Thread.Sleep(1000);
+        {
             homePage.ClickSchedule();
             schedulePage.SelectTeam();
             schedulePage.SelectMonth();
             schedulePage.Scroll();
-            System.Threading.Thread.Sleep(2000);
-            schedulePage.NoPop();
-            System.Threading.Thread.Sleep(2000);
             schedulePage.ClickScoreBox();
 
             Assert.IsTrue(gamePage.GameScoreBox.Displayed);
-
-
-
-
-
         }
 
 
     [Test, Order(5)]
     public void LookForAwardsNews()
     {
-            Driver.Manage().Window.Maximize();
-            Driver.Navigate().GoToUrl("https://www.nba.com/");
 
             homePage.ClickNews();
-            System.Threading.Thread.Sleep(2000);
+            waitHelper.IsClickable(newsPage.awards);
             newsPage.ClickAwards();
-            System.Threading.Thread.Sleep(2000);
+            Thread.Sleep(1000);
             awardsPage.Scroll();
             awardsPage.ClickNewsMVP();
-            System.Threading.Thread.Sleep(2000);
 
 
             string title = mvpPage.NewsTitle.Text;

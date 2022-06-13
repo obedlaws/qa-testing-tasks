@@ -10,17 +10,18 @@ namespace qa_nba.Pages
         string Players = "//*[@id='nav-ul']/li[11]";
         string Schedule = "//*[@id='nav-ul']/li[2]";
         string News = "//*[@id='nav-ul']/li[4]";
-        string signInButton = "/html/body/div[1]/div[2]/div[1]/div[1]/nav/div/div/div[2]";
+        public string signInButton = "/html/body/div[1]/div[2]/div[1]/div[1]/nav/div/div/div[2]";
         string signIntoNBA = "/html/body/div[1]/div[2]/div[1]/div[1]/nav/div/div/div[2]/div/div[1]/a[2]";
         
 
         // Common Elements
-        string Cookies = "//*[@id='onetrust-accept-btn-handler']";
-        
+        public string Cookies = "//*[@id='onetrust-accept-btn-handler']";
+        public string SearchBar = "//*[@id='search-icon-desktop']/svg";
+        public string AdBanner = "//*[@id='home_ad_b_1']";
         
         // SignUp Elements
         string signUpLink = "/html/body/div[8]/div/div[1]/div[2]/div[2]";
-        string TeamLogo = "//*[@id='nbaSelectFavoriteTeamsModal']/div[2]/div[2]/div";
+        public string TeamLogo = "//*[@id='nbaSelectFavoriteTeamsModal']/div[2]/div[2]/div";
         string day = "//*[@id='nbaSignUpModal']/form/div[7]/div[1]/select/option[6]";
         string month = "//*[@id='nbaSignUpModal']/form/div[7]/div[2]/select/option[7]";
         string year = "//*[@id='nbaSignUpModal']/form/div[7]/div[3]/select/option[25]";
@@ -30,7 +31,7 @@ namespace qa_nba.Pages
         string exit = "//*[@id='nbaExplorePackagesModal']/div[3]";
         string nextButton = "//*[@id='nbaSelectFavoriteTeamsModal']/div[3]/div/button";
         string nextButtonTwo = "//*[@id='nbaNewslettersModal']/div[3]/div/button";
-        string checkBoxDaily = "//*[@id='nbaNewsletters0']";
+        public string checkBoxDaily = "//*[@id='nbaNewsletters0']";
         string checkBoxPromotions = "//*[@id='nbaNewsletters4']";
 
 
@@ -38,7 +39,7 @@ namespace qa_nba.Pages
         // HomePage Elements
 
         IWebElement playersTab => Driver.FindElement(By.XPath(Players));
-
+       
         IWebElement newsTab => Driver.FindElement(By.XPath(News));
         IWebElement scheduleTab => Driver.FindElement(By.XPath(Schedule));
 
@@ -133,5 +134,12 @@ namespace qa_nba.Pages
 
         public void ExitBtn() => crossTopRight.Click();
         public void ClickCookies() => cookiesBtn.Click();
+
+        public bool IsItVisible(IWebElement element)
+        {
+            return element.Displayed;
+        }
+
+
     }
 }

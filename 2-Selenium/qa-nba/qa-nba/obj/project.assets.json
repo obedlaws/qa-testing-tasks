@@ -414,6 +414,18 @@
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
         }
       },
+      "SeleniumExtras.WaitHelpers/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "4.0.0-beta2"
+        },
+        "compile": {
+          "lib/netstandard2.1/SeleniumExtras.WaitHelpers.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/SeleniumExtras.WaitHelpers.dll": {}
+        }
+      },
       "Stef.Validation/0.1.0": {
         "type": "package",
         "compile": {
@@ -1422,6 +1434,19 @@
         "selenium.webdriver.chromedriver.nuspec"
       ]
     },
+    "SeleniumExtras.WaitHelpers/1.0.2": {
+      "sha512": "de7m30nkZZLkfCncYBdluUpM27AR/Vkk4kiA4HRQbV+fZI3ps4qGIeJCuj8TAMXdMfQik5Rno8xPnFBIod+ebg==",
+      "type": "package",
+      "path": "seleniumextras.waithelpers/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "lib/netstandard2.1/SeleniumExtras.WaitHelpers.dll",
+        "seleniumextras.waithelpers.1.0.2.nupkg.sha512",
+        "seleniumextras.waithelpers.nuspec"
+      ]
+    },
     "Stef.Validation/0.1.0": {
       "sha512": "WWIzJ2WNoqRgHL23At3xFFw56I4YeWUJ35a7Rsgv9V0FIjZb3gY/4e8DqH0M2I9KOU8MBfKl5a7B9EtjvnI9dg==",
       "type": "package",
@@ -1476,6 +1501,7 @@
       "Selenium.Support >= 4.2.0",
       "Selenium.WebDriver >= 4.2.0",
       "Selenium.WebDriver.ChromeDriver >= 102.0.5005.6102",
+      "SeleniumExtras.WaitHelpers >= 1.0.2",
       "coverlet.collector >= 3.1.2"
     ]
   },
@@ -1553,6 +1579,10 @@
           "Selenium.WebDriver.ChromeDriver": {
             "target": "Package",
             "version": "[102.0.5005.6102, )"
+          },
+          "SeleniumExtras.WaitHelpers": {
+            "target": "Package",
+            "version": "[1.0.2, )"
           },
           "coverlet.collector": {
             "target": "Package",
